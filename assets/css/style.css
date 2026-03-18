@@ -340,6 +340,43 @@ box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.4);
 .nav-menu a:hover span, .nav-menu .active span, .nav-menu .active:focus span, .nav-menu li:hover > a span {
   color: #fff;
 }
+
+.nav-menu .theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 18px;
+  margin-bottom: 8px;
+  border-radius: 50px;
+  border: 1px solid #d0d0d0;
+  background: #f2f3f5;
+  color: #303030;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.nav-menu .theme-toggle-btn i {
+  font-size: 20px;
+}
+
+.nav-menu .theme-toggle-btn:hover {
+  background: #dcdcdc;
+  color: #000;
+}
+
+@media (min-width: 992px) {
+  .nav-menu .theme-toggle-btn {
+    width: 56px;
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+  .nav-menu .theme-toggle-btn .toggle-label {
+    display: none;
+  }
+}
+
 .nav-menu a:hover, .nav-menu li:hover > a {
   width: 100%;
   color: rgb(0, 0, 0);
@@ -1135,7 +1172,7 @@ text-decoration: underline;
 /*--------------------------------------------------------------
 # Dark Theme Overrides
 --------------------------------------------------------------*/
-:root {
+body.dark-theme {
   --bg: #0c0f14;
   --panel: #111620;
   --panel-alt: #161c26;
@@ -1143,220 +1180,225 @@ text-decoration: underline;
   --muted: #aeb7c8;
   --accent: #6bc5ff;
   --accent-strong: #8bd4ff;
-}
-
-body {
   color: var(--text);
   background-color: var(--bg);
 }
 
-a {
+body.dark-theme a {
   color: var(--accent);
 }
 
-a:hover {
+body.dark-theme a:hover {
   color: var(--accent-strong);
 }
 
-.tab-container-wrapper {
+body.dark-theme .tab-container-wrapper {
   border: 10px solid #2c3543;
+  background: var(--panel-alt);
 }
 
-.tab {
+body.dark-theme .tab {
   background-color: var(--panel);
   border: 2px solid #2c3543;
   color: var(--text);
 }
 
-.tab:hover,
-.tab.active {
+body.dark-theme .tab:hover,
+body.dark-theme .tab.active {
   background-color: #1f2733;
   border-color: #3a4557;
   color: #fff;
 }
 
-.spinner {
+body.dark-theme .spinner {
   border: 4px solid rgba(255, 255, 255, 0.08);
   border-top: 4px solid var(--accent);
 }
 
-.shadowhover:hover {
+body.dark-theme .shadowhover:hover {
   box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.65);
 }
 
-.nav-menu a,
-.nav-menu a:focus {
+body.dark-theme .nav-menu a,
+body.dark-theme .nav-menu a:focus {
   background: var(--panel);
   color: var(--text);
 }
 
-.nav-menu a span,
-.nav-menu a:focus span {
+body.dark-theme .nav-menu a span,
+body.dark-theme .nav-menu a:focus span {
   color: var(--muted);
 }
 
-.nav-menu a:hover,
-.nav-menu .active,
-.nav-menu .active:focus,
-.nav-menu li:hover > a {
+body.dark-theme .nav-menu a:hover,
+body.dark-theme .nav-menu .active,
+body.dark-theme .nav-menu .active:focus,
+body.dark-theme .nav-menu li:hover > a {
   background: #1f2733;
   color: #fff;
 }
 
-.nav-menu a:hover span,
-.nav-menu .active span,
-.nav-menu .active:focus span,
-.nav-menu li:hover > a span {
+body.dark-theme .nav-menu a:hover span,
+body.dark-theme .nav-menu .active span,
+body.dark-theme .nav-menu .active:focus span,
+body.dark-theme .nav-menu li:hover > a span {
   color: #fff;
 }
 
-.mobile-nav-toggle i {
+body.dark-theme .theme-toggle-btn {
+  background: #1f2733;
+  border: 1px solid #3a4557;
   color: var(--text);
 }
 
-.mobile-nav-active .mobile-nav-toggle {
+body.dark-theme .theme-toggle-btn:hover {
+  background: #273040;
+  color: #fff;
+}
+
+body.dark-theme .mobile-nav-toggle i {
+  color: var(--text);
+}
+
+body.dark-theme .mobile-nav-active .mobile-nav-toggle {
   background-color: var(--panel);
   color: var(--text);
 }
 
 @media (max-width: 992px) {
-  #header {
+  body.dark-theme #header {
     background: var(--panel);
     border-right: 1px solid #1f2733;
   }
 }
 
-#hero {
+body.dark-theme #hero {
   background-color: #0f131c;
 }
 
-#hero:before {
+body.dark-theme #hero:before {
   background: rgba(8, 10, 15, 0.78);
 }
 
-.section-title h2 {
+body.dark-theme .section-title h2 {
   color: var(--text);
 }
 
-.section-title h2::before {
+body.dark-theme .section-title h2::before {
   background: #2c3543;
 }
 
-.section-title h2::after {
+body.dark-theme .section-title h2::after {
   background: var(--accent);
 }
 
-.section-title p {
+body.dark-theme .section-title p {
   color: var(--muted);
 }
 
-.about,
-.Games,
-.contact {
+body.dark-theme .about,
+body.dark-theme .Games,
+body.dark-theme .contact {
   background-color: var(--panel);
 }
 
-.about p,
-.project-subheading,
-.project-subheading2,
-.project-heading,
-.project-heading a {
+body.dark-theme .about p,
+body.dark-theme .project-subheading,
+body.dark-theme .project-subheading2,
+body.dark-theme .project-heading,
+body.dark-theme .project-heading a {
   color: var(--text);
 }
 
-.about .content h3 {
+body.dark-theme .about .content h3 {
   color: var(--text);
 }
 
-.project-heading a:hover {
+body.dark-theme .project-heading a:hover {
   color: var(--accent-strong);
 }
 
-.text-center img,
-.text-center iframe {
+body.dark-theme .text-center img,
+body.dark-theme .text-center iframe {
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.7);
 }
 
-.tab-container-wrapper {
-  background: var(--panel-alt);
-}
-
-.back-to-top {
+body.dark-theme .back-to-top {
   background: var(--accent);
 }
 
-.back-to-top:hover {
+body.dark-theme .back-to-top:hover {
   background: var(--accent-strong);
 }
 
-#preloader {
+body.dark-theme #preloader {
   background: var(--bg);
 }
 
-#preloader:before {
+body.dark-theme #preloader:before {
   border: 5px solid #2c3543;
   border-top: 4px solid var(--accent);
 }
 
-#contact .social-links a {
+body.dark-theme #contact .social-links a {
   background: #1f2733;
   color: var(--text);
 }
 
-#contact .social-links a:hover {
+body.dark-theme #contact .social-links a:hover {
   background: var(--accent);
   color: #0c0f14;
 }
 
-.contact .info,
-.contact .php-email-form {
+body.dark-theme .contact .info,
+body.dark-theme .contact .php-email-form {
   background: var(--panel-alt);
   color: var(--text);
 }
 
-.contact .info h4,
-.contact .info p,
-.contact .php-email-form input,
-.contact .php-email-form textarea {
+body.dark-theme .contact .info h4,
+body.dark-theme .contact .info p,
+body.dark-theme .contact .php-email-form input,
+body.dark-theme .contact .php-email-form textarea {
   color: var(--text);
 }
 
-.contact .php-email-form input,
-.contact .php-email-form textarea {
+body.dark-theme .contact .php-email-form input,
+body.dark-theme .contact .php-email-form textarea {
   background: #0f121a;
   border: 1px solid #293040;
 }
 
-.contact .php-email-form button[type=submit] {
+body.dark-theme .contact .php-email-form button[type=submit] {
   background: var(--accent);
   color: #0c0f14;
 }
 
-.contact .php-email-form button[type=submit]:hover {
+body.dark-theme .contact .php-email-form button[type=submit]:hover {
   background: var(--accent-strong);
 }
 
-#footer {
+body.dark-theme #footer {
   background: var(--panel);
   color: var(--text);
 }
 
-#footer .social-links a {
+body.dark-theme #footer .social-links a {
   background: var(--accent);
   color: #0c0f14;
 }
 
-#footer .social-links a:hover {
+body.dark-theme #footer .social-links a:hover {
   background: var(--accent-strong);
 }
 
 @media (max-width: 992px) {
-  .tab-container-wrapper {
+  body.dark-theme .tab-container-wrapper {
     border: 3px solid #2c3543;
     padding: 10px;
   }
 
-  .tab {
+  body.dark-theme .tab {
     padding: 5px 10px;
   }
 }

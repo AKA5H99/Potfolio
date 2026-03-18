@@ -42,6 +42,12 @@
 
     <nav id="navbar" class="navbar nav-menu">
       <ul>
+        <li class="theme-toggle-li">
+          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+            <i class="bi bi-moon"></i>
+            <span class="toggle-label">Dark</span>
+          </button>
+        </li>
         <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
         <li><a href="#Project" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Projects</span></a></li>
@@ -438,6 +444,38 @@ videoContainers.forEach(container => {
   };
 });
 
+// Theme toggle
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
+const themeLabel = themeToggleBtn ? themeToggleBtn.querySelector('.toggle-label') : null;
+
+function applyTheme(mode) {
+  if (mode === 'dark') {
+    document.body.classList.add('dark-theme');
+  } else {
+    document.body.classList.remove('dark-theme');
+  }
+
+  if (themeIcon && themeLabel) {
+    const isDark = mode === 'dark';
+    themeIcon.classList.toggle('bi-moon', !isDark);
+    themeIcon.classList.toggle('bi-sun', isDark);
+    themeLabel.textContent = isDark ? 'Light' : 'Dark';
+  }
+
+  localStorage.setItem('theme', mode);
+}
+
+if (themeToggleBtn) {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light'));
+
+  themeToggleBtn.addEventListener('click', () => {
+    const nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+    applyTheme(nextTheme);
+  });
+}
 
 
   </script>
