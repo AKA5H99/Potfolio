@@ -1823,3 +1823,170 @@ body #footer .social-links a:hover {
   border-radius: 0.6rem;
   font-weight: 600;
 }
+
+/* --------------------------------------------------------------------------
+   Project showcase polish
+   -------------------------------------------------------------------------- */
+.Games {
+  position: relative;
+  isolation: isolate;
+}
+
+.Games::before {
+  position: absolute;
+  z-index: -1;
+  top: 4rem;
+  right: 8%;
+  width: 22rem;
+  height: 22rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107, 197, 255, 0.1), transparent 68%);
+  content: "";
+  pointer-events: none;
+}
+
+.Games .section-title > p {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+  padding: 0.38rem 0.75rem;
+  border: 1px solid rgba(107, 197, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(107, 197, 255, 0.05);
+  color: #c7d3e4;
+  font-size: 0.92rem;
+}
+
+.tab-container {
+  gap: 0.65rem;
+}
+
+.tab {
+  position: relative;
+  overflow: hidden;
+  padding: 0.7rem 1.05rem;
+  border-radius: 0.7rem;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.tab::before {
+  display: inline-block;
+  width: 0.45rem;
+  height: 0.45rem;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+  content: "";
+  opacity: 0.55;
+}
+
+.tab:hover,
+.tab.active {
+  box-shadow: 0 8px 22px rgba(41, 148, 211, 0.14);
+  transform: translateY(-2px);
+}
+
+.tab-container-wrapper {
+  border: 1px solid rgba(107, 197, 255, 0.2);
+  background: linear-gradient(145deg, rgba(24, 31, 43, 0.96), rgba(13, 18, 27, 0.96));
+}
+
+.tab-content > .section-title h2 {
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+}
+
+.tab-content > .row {
+  position: relative;
+  border-left: 2px solid transparent;
+}
+
+.tab-content > .row:hover {
+  border-left-color: #6bc5ff;
+  background: linear-gradient(90deg, rgba(107, 197, 255, 0.1), rgba(107, 197, 255, 0.02));
+}
+
+.project-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-heading > i,
+.project-heading a > i {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(107, 197, 255, 0.22);
+  border-radius: 0.55rem;
+  place-items: center;
+  background: rgba(107, 197, 255, 0.08);
+  color: #8bd4ff;
+  font-size: 1rem;
+}
+
+.project-heading a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.project-heading a:hover {
+  text-decoration: none;
+}
+
+.project-heading a:hover > i {
+  border-color: #6bc5ff;
+  background: #6bc5ff;
+  color: #0c0f14;
+}
+
+.tab-content ul {
+  display: grid;
+  gap: 0.38rem;
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+.tab-content li::marker {
+  color: #6bc5ff;
+}
+
+.video-container {
+  width: min(100%, 420px);
+  overflow: hidden;
+  border-radius: 0.7rem;
+  background: #090b0f;
+}
+
+.text-center iframe,
+.text-center img,
+.text-center video {
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.tab-content > .row:hover .text-center iframe,
+.tab-content > .row:hover .text-center img,
+.tab-content > .row:hover .text-center video {
+  transform: scale(1.025);
+}
+
+@media (max-width: 991px) {
+  .Games::before {
+    right: -10rem;
+  }
+
+  .tab-container {
+    gap: 0.5rem;
+  }
+
+  .tab {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .tab-content > .row:hover {
+    transform: none;
+  }
+}
