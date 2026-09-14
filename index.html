@@ -26,8 +26,6 @@
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -37,19 +35,12 @@
 <body>
 
   <!-- ======= Mobile nav toggle button ======= -->
-  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
   <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex flex-column justify-content-center">
 
     <nav id="navbar" class="navbar nav-menu">
       <ul>
-        <li class="theme-toggle-li">
-          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-            <i class="bi bi-moon"></i>
-            <span class="toggle-label">Dark</span>
-          </button>
-        </li>
         <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
         <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
         <li><a href="#Project" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Projects</span></a>
@@ -217,7 +208,7 @@
               </div>
 
               <div class="col-md-6 text-center">
-                <img src="assets/gif/Car-Controller.webm" loading="lazy" width="400" height="225" />
+                <video src="assets/gif/Car-Controller.webm" loading="lazy" width="400" height="225" muted loop playsinline controls></video>
               </div>
             </div>
 
@@ -232,7 +223,7 @@
               </div>
 
               <div class="col-md-6 text-center">
-                <img src="assets/gif/2d-Plane-Shooter.webm" loading="lazy" />
+                <video src="assets/gif/2d-Plane-Shooter.webm" loading="lazy" muted loop playsinline controls></video>
               </div>
 
             </div>
@@ -636,92 +627,11 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <!-- Required third-party scripts -->
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
-  <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <script>
-
-    function openTab(tabName) {
-      const tabs = document.querySelectorAll('.tab-content');
-      tabs.forEach(tab => tab.classList.remove('active'));
-
-      const buttons = document.querySelectorAll('.tab'); // Select all tab buttons
-      buttons.forEach(button => button.classList.remove('active'));
-
-      document.getElementById(tabName).classList.add('active');
-      document.querySelector(`button[data-tab="${tabName}"]`).classList.add('active'); // Add 'active' class to the corresponding button
-    }
-
-    // Hide each media spinner once its video, image, or iframe is ready.
-    const videoContainers = document.querySelectorAll('.video-container');
-
-    videoContainers.forEach(container => {
-      const spinner = container.querySelector('.spinner');
-      const media = container.querySelector('iframe, video, img');
-
-      if (!spinner || !media) return;
-
-      const hideSpinner = () => {
-        spinner.style.display = 'none';
-      };
-
-      if (media.tagName === 'VIDEO') {
-        media.addEventListener('loadeddata', hideSpinner, { once: true });
-        media.addEventListener('error', hideSpinner, { once: true });
-      } else {
-        media.addEventListener('load', hideSpinner, { once: true });
-        media.addEventListener('error', hideSpinner, { once: true });
-
-        // An image can already be loaded before its listener is registered.
-        if (media.tagName === 'IMG' && media.complete) hideSpinner();
-      }
-    });
-
-    // Theme toggle
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
-    const themeLabel = themeToggleBtn ? themeToggleBtn.querySelector('.toggle-label') : null;
-
-    function applyTheme(mode) {
-      if (mode === 'dark') {
-        document.body.classList.add('dark-theme');
-      } else {
-        document.body.classList.remove('dark-theme');
-      }
-
-      if (themeIcon && themeLabel) {
-        const isDark = mode === 'dark';
-        themeIcon.classList.toggle('bi-moon', !isDark);
-        themeIcon.classList.toggle('bi-sun', isDark);
-        themeLabel.textContent = isDark ? 'Light' : 'Dark';
-      }
-
-      localStorage.setItem('theme', mode);
-    }
-
-    if (themeToggleBtn) {
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      applyTheme(savedTheme ? savedTheme : (prefersDark ? 'dark' : 'light'));
-
-      themeToggleBtn.addEventListener('click', () => {
-        const nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
-        applyTheme(nextTheme);
-      });
-    }
-
-
-  </script>
 
 </body>
 
